@@ -1,0 +1,11 @@
+# nameOverride: iwayq-web-app
+
+# meta information. This data is used by operations to identify the deployed
+# artifacts
+meta:
+  organization: "iwayq"
+  team: "iwayq-web"
+  product: "iwayqwebapp"
+
+deployment:
+  replicaCount: 1

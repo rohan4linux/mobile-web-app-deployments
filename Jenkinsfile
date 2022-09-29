@@ -1,9 +1,9 @@
 pipeline {
 
   environment {
-    label = "deploy-mobile-web-app"
-    namespace = "qa"
-    environ = "qa"
+    label = "dev-deploy-mobile-web-app"
+    namespace = "dev"
+    environ = "dev"
   }
   agent any
 
@@ -11,20 +11,20 @@ pipeline {
 
       stage ('Checkout SCM'){
         steps {
-          checkout([$class: 'GitSCM', branches: [[name: '*/qa']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://iwayqtech@bitbucket.org/iwayqtech/mobile-web-app-deployments.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/dev']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/rohan4linux/mobile-web-app-deployments.git']]])
         }
       }
 	  
 	  stage ('Deploy Helm Charts')  {
 	      steps {
-           sh "sudo /usr/local/bin/helm version"
+           sh "sudo /bin/helm version"
           
            dir("iwayq-web-app"){
                     sh 'pwd'
-                    sh "sudo /usr/local/bin/helm repo add mobile-local https://iwayqweb.jfrog.io/artifactory/mobile-helm-local --username prreddy1986@gmail.com --password mko09ijN"
-                    sh "sudo /usr/local/bin/helm repo update"
-                    sh "sudo /usr/local/bin/helm upgrade iwayq-web-app-${environ} --install --namespace ${namespace}  --force ."
-                    sh "sudo /usr/local/bin/helm list -a --namespace ${namespace}"
+                    sh "sudo /bin/helm repo add mobile-local https://valaxytech529.jfrog.io/artifactory/mobile-helm-local --username rohan.reddy529@gmail.com --password 4getmenot@J"
+                    sh "sudo /bin/helm repo update"
+                    sh "sudo /bin/helm upgrade iwayq-web-app-${environ} --install --namespace ${namespace}  --force ."
+                    sh "sudo /bin/helm list -a --namespace ${namespace}"
                 }
         }
          
