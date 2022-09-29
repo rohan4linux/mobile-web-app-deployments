@@ -8,4 +8,4 @@ meta:
   product: "iwayqwebapp"
 
 deployment:
-  replicaCount: 2
+  replicaCount: 1
