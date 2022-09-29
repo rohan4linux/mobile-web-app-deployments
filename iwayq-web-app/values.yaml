@@ -8,6 +8,7 @@ meta:
   product: "iwayqwebapp"
 
 deployment:
+<<<<<<< HEAD
   replicaCount: 1
 image:
   repository: docker.io/rohan4linux/iwayq:1.0
@@ -27,3 +28,6 @@ service:
 
 
          
+=======
+  replicaCount: 5
+>>>>>>> 0900a4abb53eca92a462222fae56baadb77130fd
