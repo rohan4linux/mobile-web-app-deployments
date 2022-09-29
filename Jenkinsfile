@@ -1,9 +1,9 @@
 pipeline {
 
   environment {
-    label = "dev-deploy-mobile-web-app"
-    namespace = "dev"
-    environ = "dev"
+    label = "qa-deploy-mobile-web-app"
+    namespace = "qa"
+    environ = "qa"
   }
   agent any
 
@@ -11,7 +11,7 @@ pipeline {
 
       stage ('Checkout SCM'){
         steps {
-          checkout([$class: 'GitSCM', branches: [[name: '*/dev']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/rohan4linux/mobile-web-app-deployments.git']]])
+          checkout([$class: 'GitSCM', branches: [[name: '*/qa']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/rohan4linux/mobile-web-app-deployments.git']]])
         }
       }
 	  
