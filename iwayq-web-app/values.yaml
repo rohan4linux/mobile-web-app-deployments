@@ -11,7 +11,7 @@ deployment:
   replicaCount: 1
 image:
   repository: docker.io/rohan4linux/iwayq:1.0
-resources: {}
+resources: 
   requests:
     memory: 512Mi
     cpu: 300m
