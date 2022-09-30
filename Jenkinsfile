@@ -23,7 +23,7 @@ pipeline {
                     sh 'pwd'
                     sh "sudo /bin/helm repo add mobile-local https://valaxytech529.jfrog.io/artifactory/mobile-helm-local --username rohan.reddy529@gmail.com --password 4getmenot@J"
                     sh "sudo /bin/helm repo update"
-                    sh "sudo /bin/helm upgrade iwayq-web-app-${environ} --install --namespace ${namespace}  --force ."
+                    sh "sudo /bin/helm upgrade iwayq-web-app-${environ} --install --namespace ${namespace} --create-namespace  --force ."
                     sh "sudo /bin/helm list -a --namespace ${namespace}"
                 }
         }
