@@ -9,3 +9,21 @@ meta:
 
 deployment:
   replicaCount: 1
+image:
+  repository: docker.io/rohan4linux/iwayq:1.0
+resources: {}
+  requests:
+    memory: 512Mi
+    cpu: 300m
+  limits:
+    cpu: 100m
+    memory: 1024Mi  
+service:
+  type: NodePort
+  nodePort: 31000
+  port: 8080
+  targetPort: 8080
+
+
+
+         
